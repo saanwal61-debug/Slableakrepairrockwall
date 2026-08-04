@@ -1,0 +1,19 @@
+RewriteEngine On
+
+# 1. Force HTTP to HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Redirect WWW to Non-WWW
+RewriteCond %{HTTP_HOST} ^www\.slableakrepairrockwall\.com [NC]
+RewriteRule ^(.*)$ https://slableakrepairrockwall.com/$1 [L,R=301]
+
+# 3. Redirect index.html to root
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*index\.html\ HTTP/
+RewriteRule ^(.*)index\.html$ https://slableakrepairrockwall.com/$1 [R=301,L]
+
+# 4. Specific Page Redirects
+Redirect 301 /services.html /services/
+Redirect 301 /blog.html /blog/
+Redirect 301 /locations.html /locations/
+Redirect 301 /about /about.html
