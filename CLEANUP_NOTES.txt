@@ -1,0 +1,11 @@
+SEO URL cleanup prepared for Cloudflare Pages
+
+Changes:
+- Converted internal navigation links from .html URLs to clean canonical URLs.
+- Converted absolute/protocol-relative internal .html URLs in HTML structured data and social metadata to clean URLs.
+- Kept the physical .html files in place so legacy URLs can continue to redirect safely.
+- Updated the top-level Cloudflare Pages _redirects rules for services/locations/blog to point directly to their slash canonical URLs.
+- Did not change robots.txt or sitemap URL structure.
+
+Deploy this repository through the existing GitHub -> Cloudflare Pages connection.
+After deployment, test a few old .html URLs in a browser and confirm they redirect to the clean URL.
